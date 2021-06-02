@@ -9,5 +9,11 @@
 </head>
 <body>
 <h1>List of Superheroes</h1>
+<ul>
+    {% for superhero in all_superheroes %}
+    <li><h2>{{superhero.name}} - "{{superhero.catchphrase}}" </h2>
+    <a href="{%url 'superheroes:details' superhero.id %}">View Details</ahref></a></li>
+    {% endfor %}
+</ul>
 </body>
 </html>
