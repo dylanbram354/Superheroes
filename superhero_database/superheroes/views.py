@@ -12,14 +12,15 @@ def index(request):
     }
     return render(request, 'superheroes/index.html', context)
 
+
 def details(request, superhero_id):
-    # hero = Superhero.objects.get(id=superhero_id)
-    # context = {
-    #     'hero': hero
-    # }
-    # return render(request, *details.html (doesn't exist yet)*, context)
-    return HttpResponse('Placeholder text')
-    pass
+    hero = Superhero.objects.get(id=superhero_id)
+    context = {
+        'hero': hero
+    }
+    return render(request, 'superheroes/details.html', context)
+
+
 
 def create(request):
     if request.method == 'POST':
@@ -34,3 +35,21 @@ def create(request):
         return HttpResponseRedirect(reverse('superheroes:index'))
     else:
         return render(request, 'superheroes/create.html')
+
+
+def delete(request, id):
+    hero = Superhero.objects.get(id=id)
+    hero.delete()
+    return HttpResponseRedirect(reverse('superheroes:index'))
+    pass
+
+
+def edit(request, id):
+    hero = Superhero.objects.get(id=id)
+    context = {
+        'hero': hero
+    }
+    return render(request, 'superheroes/edit.html', context)
+    pass
+
+
