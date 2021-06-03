@@ -19,15 +19,15 @@
             <form action="{% url 'superheroes:create_superhero' %}" method="post">
                 {% csrf_token %}
                 <label class="form-label">Name:</label>
-                <input type="text" name="name" id="name" class="form-control"><br>
+                <input type="text" maxlength="50" name="name" id="name" class="form-control"><br>
                 <label class="form-label">Alter Ego:</label>
-                <input type="text" name="alter_ego" id="alter_ego" class="form-control"><br>
+                <input type="text" maxlength="50" name="alter_ego" id="alter_ego" class="form-control"><br>
                 <label class="form-label">Primary Ability:</label>
-                <input type="text" name="primary_ability" id="primary_ability" class="form-control"><br>
+                <input type="text" maxlength="50" name="primary_ability" id="primary_ability" class="form-control"><br>
                 <label class="form-label">Secondary Ability:</label>
-                <input type="text" name="secondary_ability" id="secondary_ability" class="form-control"><br>
+                <input type="text" maxlength="50" name="secondary_ability" id="secondary_ability" class="form-control"><br>
                 <label class="form-label">Catchphrase:</label>
-                <input type="text" name="catchphrase" id="catchphrase" class="form-control"><br>
+                <input type="text" maxlength="50" name="catchphrase" id="catchphrase" class="form-control"><br>
                 <div class="row justify-content-center">
                     <div class="col-md"></div>
                     <div class="col-md p-3 d-flex justify-content-center">
