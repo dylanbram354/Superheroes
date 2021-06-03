@@ -49,7 +49,16 @@ def edit(request, id):
     context = {
         'hero': hero
     }
-    return render(request, 'superheroes/edit.html', context)
+    if request.method == 'POST':
+        hero.name = request.POST.get('name')
+        hero.alter_ego = request.POST.get('alter_ego')
+        hero.primary_ability = request.POST.get('primary_ability')
+        hero.secondary_ability = request.POST.get('secondary_ability')
+        hero.catchphrase = request.POST.get('catchphrase')
+        hero.save()
+        return HttpResponseRedirect(reverse('superheroes:index'))
+    else:
+        return render(request, 'superheroes/edit.html', context)
     pass
 
 
