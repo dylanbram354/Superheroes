@@ -44,6 +44,14 @@ def delete(request, id):
     pass
 
 
+def confirm_delete(request, id):
+    hero = Superhero.objects.get(id=id)
+    context = {
+        'hero': hero
+    }
+    return render(request, 'superheroes/confirm_delete.html', context)
+
+
 def edit(request, id):
     hero = Superhero.objects.get(id=id)
     context = {

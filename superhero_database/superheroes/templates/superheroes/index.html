@@ -39,7 +39,7 @@
                        class="btn btn-warning">Edit {{superhero.name}}</a>
                 </div>
                 <div class="col-3 d-flex justify-content-center">
-                    <a href="{% url 'superheroes:delete_superhero' superhero.id %}"
+                    <a href="{% url 'superheroes:confirm_delete' superhero.id %}"
                        class="btn btn-danger">Delete {{superhero.name}}</a>
                 </div>
             </div>
