@@ -21,7 +21,7 @@
             <div class="col-md-4"></div>
             <div class="col-12 col-md-2 d-flex justify-content-center p-3">
                 <a href="{% url 'superheroes:delete_superhero' hero.id %}"
-                   class="btn btn-danger w-100">Delete {{hero.name}}</a>
+                   class="btn btn-danger w-100 text-break">Delete {{hero.name}}</a>
             </div>
             <div class="col-12 col-md-2 d-flex justify-content-center p-3">
                 <a href="{% url 'superheroes:index' %}" class="btn btn-primary w-100">Cancel</a>
