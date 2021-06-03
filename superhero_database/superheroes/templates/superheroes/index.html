@@ -15,24 +15,75 @@
     <title>Superhero Index</title>
 </head>
 <body>
-    <h1>Superheroes!</h1>
-    <ul>
-        {% for superhero in all_superheroes %}
-        <li>
-            <h2>{{superhero.name}} - "{{superhero.catchphrase}}"
-            <button inline="true">
-                <a href="{% url 'superheroes:details' superhero.id %}">View Details</ahref></a>
-            </button>
-            <button inline="true">
-                <a href="{% url 'superheroes:delete_superhero' superhero.id %}">Delete {{superhero.name}}</ahref></a>
-            </button>
-            <button inline="true">
-                <a href="{% url 'superheroes:edit_superhero' superhero.id %}">Edit {{superhero.name}}</ahref></a>
-            </button>
-            </h2>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'superheroes:create_superhero' %}">Create New Superhero</a>
+    <div class="container">
+        <h1 class="text-center p-3">Welcome to your Superhero Database!</h1>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="{% static 'superheroes/groot.jpg' %}" alt="Groot" class="img-fluid">
+        </div>
+        <div class="col-1"></div>
+        <div class="col-6">
+            {% for superhero in all_superheroes %}
+            <div class="row align-items-center p-3">
+                <div class="col">
+                    <h2 class="text-center">{{superhero.name}}</h2>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <a href="{% url 'superheroes:details' superhero.id %}"
+                       class="btn btn-primary">View Details</a>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <a href="{% url 'superheroes:edit_superhero' superhero.id %}"
+                       class="btn btn-warning">Edit {{superhero.name}}</a>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <a href="{% url 'superheroes:delete_superhero' superhero.id %}"
+                       class="btn btn-danger">Delete {{superhero.name}}</a>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row align-items-start p-3">
+                <div class="col"></div>
+                <div class="col">
+                    <a class="d-flex justify-content-center btn btn-success"
+                       href="{% url 'superheroes:create_superhero' %}"
+                       >Create New Superhero</a>
+                </div>
+                <div class="col"></div>
+            </div>
+        <div class="col-1"></div>
+    </div>
+<!--    {% for superhero in all_superheroes %}-->
+<!--    <div class="row align-items-center p-3">-->
+<!--        <div class="col-2"></div>-->
+<!--        <div class="col-2">-->
+<!--            <h2 class="text-center">{{superhero.name}}</h2>-->
+<!--        </div>-->
+<!--        <div class="col-2 d-flex justify-content-center">-->
+<!--            <a href="{% url 'superheroes:details' superhero.id %}"-->
+<!--               class="btn btn-primary">View Details</a>-->
+<!--        </div>-->
+<!--        <div class="col-2 d-flex justify-content-center">-->
+<!--            <a href="{% url 'superheroes:edit_superhero' superhero.id %}"-->
+<!--               class="btn btn-warning">Edit {{superhero.name}}</a>-->
+<!--        </div>-->
+<!--        <div class="col-2 d-flex justify-content-center">-->
+<!--            <a href="{% url 'superheroes:delete_superhero' superhero.id %}"-->
+<!--               class="btn btn-danger">Delete {{superhero.name}}</a>-->
+<!--        </div>-->
+<!--        <div class="col-2 col-sm-0"></div>-->
+<!--    </div>-->
+<!--        {% endfor %}-->
+<!--    <div class="row align-items-start p-3">-->
+<!--        <div class="col"></div>-->
+<!--        <div class="col">-->
+<!--            <a class="d-flex justify-content-center btn btn-success"-->
+<!--               href="{% url 'superheroes:create_superhero' %}"-->
+<!--               >Create New Superhero</a>-->
+<!--        </div>-->
+<!--        <div class="col"></div>-->
+    </div>
 </body>
 </html>
